@@ -1,0 +1,307 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+
+    background: #333;
+    color: white;
+
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+
+    /* #a43614 */
+    /* #e5c368 */
+}
+
+body * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-screen.hidden, .tournament-screen.hidden, .overlay.hidden {
+    display: none;
+}
+
+#createTournament {
+    font-size: 20px;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: black;
+}
+button.primary {
+    background: #a43614;
+    color: white;
+}
+button:disabled, button.primary:disabled, button.secondary:disabled {
+    background: darkgray;
+    cursor: not-allowed;
+}
+button.primary:not(:disabled):hover {
+    background: #903011;
+}
+button.secondary {
+    background: #ffb5a0;
+    color: white;
+}
+button.secondary:not(:disabled):hover {
+    background: #f3a993;
+}
+
+button, select, input {
+    padding: 8px;
+    text-transform: uppercase;
+    margin: 8px 8px 8px 0;
+}
+
+input {
+    margin: 4px;
+}
+
+.create-screen {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+}
+
+.teams {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.add-team {
+    display: flex;
+    margin-top: 16px;
+}
+.add-team input {
+    flex-grow: 1;
+}
+
+.add-modus {
+    display: flex;
+    margin-top: 16px;
+}
+.add-modus select {
+    flex-grow: 1;
+}
+
+.modus label {
+    text-transform: uppercase;
+}
+.modus .bracket-mode {
+    display: flex;
+}
+.modus .bracket-mode select {
+    flex-grow: 1;
+}
+
+.modus {
+    padding: 8px;
+    border-bottom: 2px solid black;
+}
+
+.tournament-options {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.tournament-screen {
+    display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+.tables {
+    height: 100vw;
+    flex-grow: 1;
+
+    position: relative;
+}
+
+.table {
+    background: white;
+    color: black;
+    height: fit-content;
+    width: fit-content;
+
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    top: 0;
+    left: 0;
+}
+.table.over {
+    background: darkgray;
+    color: gray;
+    cursor: not-allowed;
+}
+
+.move-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.table-content {
+    margin: 30px;
+    width: 150px;
+    height: 250px;
+    border: 2px solid black;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    font-size: 20px;
+}
+
+.table-content > span {
+    height: 2px;
+    background: black;
+}
+
+.table-content .team {
+    position: relative;
+    padding: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-content .team > span {
+    display: -webkit-box;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.table:not(.over) .team1:hover:after, .table:not(.over) .team2:hover:after {
+    content: "Click if this team won the game";
+}
+
+.table:not(.over) .team:hover:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+
+    font-size: 20px;
+    color: white;
+    background: #000000E0;
+}
+
+
+.table-content .team.winner {
+    color: #333;
+    font-weight: 600;
+}
+
+.score {
+    height: 100%;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    background: #333;
+    border-left: 2px solid white;
+}
+
+.score button {
+    font-size: 20px;
+    width: 80%;
+}
+
+
+.score > ol {
+    padding-left: 20px;
+    
+    overflow: scroll;
+    height: calc(100vh - 160px);
+}
+
+.team-score {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 16px;
+}
+
+.team-score > h3:first-child {
+    margin: 0;
+    width: 70%;
+    overflow-wrap: break-word;
+    text-align: left;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.team-score > h3:not(:first-child) {
+    margin: 0;
+    min-width: fit-content;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: calc(100vw - 300px);
+    background-color: #000000C0;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.overlay.load-tournament {
+    width: 100vw;
+}
+.loadTournament {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.overlay:not(.tournament-over) .winnerText {
+    display: none;
+}
+.overlay:not(.next-modus) .nextModusText {
+    display: none;
+}
+.overlay:not(.load-tournament) .loadTournament {
+    display: none;
+}
+
+.buttons:not(.next-modus) #nextModusButton {
+    display: none;
+}
+
+.buttons:not(.next-round) #nextRoundButton {
+    display: none;
+}
+
+.buttons:not(.start-tournament) #startTournamentButton {
+    display: none;
+}

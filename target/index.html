@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+  <script></script>
+  <title>Tournament Generator</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay hidden">
+    <div class="loadTournament">
+      There is a tournament in the storage, do you want to load it?
+      <button id="loadTournamentButton" class="primary">Load tournament</button>
+      <button id="createNewTournamentButton" class="primary">
+        Create new tournament
+      </button>
+    </div>
+    <div class="winnerText">
+      <h1>The tournament is over, thank you very much for playing!</h1>
+    </div>
+    <div class="nextModusText">
+      <h1>This modus is over! The next modus starts soon!</h1>
+    </div>
+  </div>
+  <div class="create-screen">
+    <h2>Tournament Generator</h2>
+    <div class="tournament-options">
+      <div class="teams-container">
+        <div class="teams"></div>
+        <div class="add-team">
+          <input id="teamnameInput" placeholder="Enter team name" />
+          <button id="addTeam" class="" disabled>Add</button>
+        </div>
+      </div>
+      <div class="modi-container">
+        <div class="modi"></div>
+        <div class="add-modus">
+          <select id="selectModus">
+            <option value="roundRobin">Round Robin</option>
+            <option value="tournament">Tournament</option>
+            <option value="swiss">Swiss Stage</option>
+          </select>
+          <button id="addModus" class="">Add</button>
+        </div>
+      </div>
+    </div>
+    <button id="createTournament" class="primary" disabled>
+      Create tournament
+    </button>
+  </div>
+  <div class="tournament-screen hidden">
+    <div class="tables"></div>
+    <div class="score">
+      <h1>Current score</h1>
+      <ol class="team-scores"></ol>
+
+      <div class="buttons">
+        <button id="nextRoundButton" class="primary">Next Round</button>
+        <button id="nextModusButton" class="primary">Next Modus</button>
+        <button id="startTournamentButton" class="primary">
+          Start Tournament
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="bundle.js"></script>
+</body>
