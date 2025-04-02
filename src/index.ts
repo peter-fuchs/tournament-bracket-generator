@@ -504,10 +504,10 @@ function addTables() {
     div.style.left = `${(i % 3) * 230}px`;
     div.style.top = `${(i > 2 ? 1 : 0) * 400}px`;
 
-    const moveIcon = document.createElement('div');
-    moveIcon.classList.add('move-icon');
-    moveIcon.innerText = '';
-    div.appendChild(moveIcon);
+    const tableNumber = document.createElement('div');
+    tableNumber.classList.add('table-number');
+    tableNumber.innerText = `${i + 1}`;
+    div.appendChild(tableNumber);
 
     const tableContent = document.createElement('div');
     tableContent.classList.add('table-content');

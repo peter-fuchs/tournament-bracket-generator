@@ -28,9 +28,6 @@ body * {
 
 button {
     cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 5px;
     color: black;
 }
 button.primary {
@@ -56,6 +53,9 @@ button, select, input {
     padding: 8px;
     text-transform: uppercase;
     margin: 8px 8px 8px 0;
+    border-radius: 8px;
+    outline: none;
+    border: none;
 }
 
 input {
@@ -144,10 +144,11 @@ input {
     cursor: not-allowed;
 }
 
-.move-icon {
+.table-number {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 5px;
+    font-size: 20px;
 }
 
 .table-content {
@@ -206,6 +207,27 @@ input {
     background: #000000E0;
 }
 
+.table:not(.over) .team > span::before, .table:not(.over) .team > span::after {
+    content: "oo";
+    position: absolute;
+}
+
+.team1 > span::before {
+    top: -5px;
+    left: 2px;
+}
+.team1 > span::after {
+    top: -5px;
+    right: 2px;
+}
+.team2 > span::before {
+    bottom: -3px;
+    left: 2px;
+}
+.team2 > span::after {
+    bottom: -3px;
+    right: 2px;
+}
 
 .table-content .team.winner {
     color: #333;
